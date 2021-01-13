@@ -19,7 +19,12 @@
  * sumOdds([3, 7, 8, 15, 2, 1, 13]) -> 39
  */
 function sumOdds(numbers) {
-  // Your code here
+  let sum = 0;
+  numbers.forEach((number) => {
+    if (number % 2 === 1) sum += number;
+  });
+
+  return sum;
 }
 
 /**
@@ -35,7 +40,11 @@ function sumOdds(numbers) {
  * Hint: Use string methods to make it case-insensitive
  */
 function characterCount(string, c) {
-  // Your code here
+  let count = 0;
+  for (let character of string) {
+    if (character.toLowerCase() === c) count++;
+  }
+  return count;
 }
 
 /**
@@ -54,7 +63,11 @@ function characterCount(string, c) {
  * differences([11, 35, 52, 14, 56]) -> [24,  17, -38,  42]
  */
 function differences(numbers) {
-  // Your code here
+  const diff = [];
+  for (let i = 1; i < numbers.length; i++) {
+    diff.push(numbers[i] - numbers[i - 1]);
+  }
+  return diff;
 }
 
 /**
@@ -74,7 +87,7 @@ function differences(numbers) {
  * largestIncrement([11, 35, 52, 14, 56, 601, 777, 888, 999]) -> 545
  */
 function largestIncrement(numbers) {
-  // Your code here
+  return Math.max(...differences(numbers));
 }
 
 /**
@@ -89,7 +102,8 @@ function largestIncrement(numbers) {
  * afterX([11, 35, 52, 14, 56, 601, 777, 888, 999], 52) -> [14, 56, 601, 777, 888, 999]
  */
 function afterX(numbers, x) {
-  // Your code here
+  const index = numbers.findIndex((element) => element === x);
+  return numbers.slice(index + 1);
 }
 
 /**
@@ -104,7 +118,7 @@ function afterX(numbers, x) {
  * Hint: Use string method .toUpperCase()
  */
 function abbreviate(firstName, lastName) {
-  // Your code here
+  return `${firstName[0]}${lastName[0]}`.toUpperCase();
 }
 
 /**
@@ -118,7 +132,7 @@ function abbreviate(firstName, lastName) {
  *
  */
 function isUpperCase(string) {
-  // Your code here
+  return string === string.toUpperCase();
 }
 
 /**
@@ -132,7 +146,7 @@ function isUpperCase(string) {
  *
  */
 function elementInArray(numbers, x) {
-  // Your code here
+  return numbers.includes(x);
 }
 
 /**
@@ -146,7 +160,7 @@ function elementInArray(numbers, x) {
  *
  */
 function reverseString(string) {
-  // Your code here
+  return string.split("").reverse().join("");
 }
 
 // console.log(sumOdds([3, 7, 8, 15, 2, 1, 13]));
